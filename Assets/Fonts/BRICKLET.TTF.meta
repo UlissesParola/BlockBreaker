@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 07e5340841f4b6b47b997ddfef338173
+timeCreated: 1502673270
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Brickletter
+  fontNames:
+  - Brickletter
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

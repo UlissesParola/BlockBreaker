@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 590cd158ac38a3540a11d9e04cd0a25f
+timeCreated: 1502673401
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: RH Brickhaus Proto
+  fontNames:
+  - RH Brickhaus Proto
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 2a99d61624dc4d54e8a6819ae6fde601, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
