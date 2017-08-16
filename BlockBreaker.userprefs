@@ -1,9 +1,10 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\MusicGame.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Bottom.cs">
     <Files>
       <File FileName="Assets\Scripts\LevelManager.cs" Line="18" Column="1" />
-      <File FileName="Assets\Scripts\MusicGame.cs" Line="17" Column="4" />
+      <File FileName="Assets\Scripts\MusicGame.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Bottom.cs" Line="10" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
