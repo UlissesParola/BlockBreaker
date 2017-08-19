@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class Bottom : MonoBehaviour {
 
-	public LevelManager levelManager;
+    private LevelManager levelManager;
 	// Use this for initialization
 	void Start () {
-
+        levelManager = GameObject.FindObjectOfType<LevelManager>();
 	}
 	
 	// Update is called once per frame

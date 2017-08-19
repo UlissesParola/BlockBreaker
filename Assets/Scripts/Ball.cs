@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Ball : MonoBehaviour {
 
-	public Paddle paddle;
+	private Paddle paddle;
 	private Vector3 ballToPaddleVector;
 	private bool hasStarted;
 	private Rigidbody2D ballRigidbody2D;
@@ -12,9 +12,13 @@ public class Ball : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
 	{
+        paddle = GameObject.FindObjectOfType<Paddle>();
 		ballRigidbody2D = GetComponent<Rigidbody2D> ();
+        ballRigidbody2D.gravityScale = 0f;
+        ballRigidbody2D.drag = 0f;
         ballToPaddleVector = this.transform.position - paddle.transform.position;
 		hasStarted = false;
+
 	}
 	
 	// Update is called once per frame
@@ -28,22 +32,17 @@ public class Ball : MonoBehaviour {
 			{
                 float XVelocity = Random.Range(-3, 4);
 				hasStarted = true;
-                ballRigidbody2D.velocity = new Vector2((float)XVelocity, 13f);
+                ballRigidbody2D.velocity = new Vector2((float)XVelocity, 10f);
 			}
 		}
-            
-
-
-        Debug.Log("x " + ballRigidbody2D.velocity.x);
-        Debug.Log("y " + ballRigidbody2D.velocity.y);
 	}
 		
-    void OnCollisionEnter2D(Collision2D collision)
+    /*void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.name.Equals("Paddle"))
         {
             Debug.Log("Velocidade adicionada");
             ballRigidbody2D.velocity = new Vector2(ballRigidbody2D.velocity.x, 13f);
         }
-    }
+    }*/
 }
