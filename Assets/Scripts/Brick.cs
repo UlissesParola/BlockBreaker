@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class Brick : MonoBehaviour {
 
-    private LevelManager levelManager;
     public int maxHit;
+    public Sprite[] hitSprites;
+    private LevelManager levelManager;
     private int hits;
+
 
 	// Use this for initialization
 	void Start () {
@@ -19,7 +21,17 @@ public class Brick : MonoBehaviour {
         {
             Destroy(gameObject);
         }
+        else
+        {
+            LoadSprites();
+        }
 	}
+
+    void LoadSprites()
+    {
+        int spriteIndex = hits - 1;
+        this.GetComponent<SpriteRenderer>().sprite = hitSprites[spriteIndex];
+    }
 
     void OnCollisionEnter2D(Collision2D collision)
     {
