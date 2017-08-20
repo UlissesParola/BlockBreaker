@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class Brick : MonoBehaviour {
 
-    public int maxHit;
     public Sprite[] hitSprites;
+    public static int brickCount = 0;
+
+    private bool isBreakable;
     private LevelManager levelManager;
     private int hits;
 
@@ -13,35 +15,56 @@ public class Brick : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         levelManager = GameObject.FindObjectOfType<LevelManager>();
+
+        isBreakable = (this.tag == "Breakable");
+        if (isBreakable)
+        {
+            brickCount++;
+        }
     }
 	
 	// Update is called once per frame
 	void Update () {
-        if (hits >= maxHit)
-        {
-            Destroy(gameObject);
-        }
-        else
-        {
-            LoadSprites();
-        }
+
 	}
 
     void LoadSprites()
     {
         int spriteIndex = hits - 1;
-        this.GetComponent<SpriteRenderer>().sprite = hitSprites[spriteIndex];
+
+        //testing if the sprite is really there before changing the image
+        if (hitSprites[spriteIndex])
+        {
+            this.GetComponent<SpriteRenderer>().sprite = hitSprites[spriteIndex];
+        }
+
     }
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        hits++;
+        if (isBreakable)
+        {
+            HandleHits();
+        }
     }
 
-    //TODO remove this method after the mechanics of winning the game is done
-    void SimulateWin()
+    void HandleHits()
     {
-        levelManager.LoadNextLevel();
+        int maxHit = hitSprites.Length + 1;
+        hits++;
+
+        if (hits >= maxHit)
+        {
+            //the decreasing of the counter should be before the Destroy method because the time this method takes to process 
+            brickCount--;
+            levelManager.BricksDestroied();
+            Destroy(gameObject);
+
+        }
+        else
+        {
+            LoadSprites();
+        }
     }
 
 }
