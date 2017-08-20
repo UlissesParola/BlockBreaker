@@ -8,12 +8,15 @@ public class Ball : MonoBehaviour {
 	private Vector3 ballToPaddleVector;
 	private bool hasStarted;
 	private Rigidbody2D ballRigidbody2D;
+    private AudioSource audioSource;
 
 	// Use this for initialization
 	void Start () 
 	{
         paddle = GameObject.FindObjectOfType<Paddle>();
 		ballRigidbody2D = GetComponent<Rigidbody2D> ();
+        audioSource = GetComponent<AudioSource>();
+
         ballRigidbody2D.gravityScale = 0f;
         ballRigidbody2D.drag = 0f;
         ballToPaddleVector = this.transform.position - paddle.transform.position;
@@ -36,13 +39,15 @@ public class Ball : MonoBehaviour {
 			}
 		}
 	}
-		
-    /*void OnCollisionEnter2D(Collision2D collision)
+        
+    void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.name.Equals("Paddle"))
+        Vector2 tweak = new Vector2(Random.Range(0f, 0.2f), Random.Range(0f, 0.2f));
+        if (hasStarted)
         {
-            Debug.Log("Velocidade adicionada");
-            ballRigidbody2D.velocity = new Vector2(ballRigidbody2D.velocity.x, 13f);
+            audioSource.Play();
+            ballRigidbody2D.velocity += tweak;
         }
-    }*/
+
+    }
 }

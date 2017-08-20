@@ -6,6 +6,7 @@ public class Brick : MonoBehaviour {
 
     public Sprite[] hitSprites;
     public static int brickCount = 0;
+    public AudioClip crack;
 
     private bool isBreakable;
     private LevelManager levelManager;
@@ -20,7 +21,9 @@ public class Brick : MonoBehaviour {
         if (isBreakable)
         {
             brickCount++;
+            Debug.Log(brickCount);
         }
+           
     }
 	
 	// Update is called once per frame
@@ -58,6 +61,9 @@ public class Brick : MonoBehaviour {
             //the decreasing of the counter should be before the Destroy method because the time this method takes to process 
             brickCount--;
             levelManager.BricksDestroied();
+            Debug.Log(brickCount);
+            //use the static method of the AudioSource class to play the sound when
+            AudioSource.PlayClipAtPoint(crack, transform.position);
             Destroy(gameObject);
 
         }
