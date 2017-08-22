@@ -20,8 +20,7 @@ public class Ball : MonoBehaviour {
         ballRigidbody2D.gravityScale = 0f;
         ballRigidbody2D.drag = 0f;
         ballToPaddleVector = this.transform.position - paddle.transform.position;
-		hasStarted = false;
-
+        StartingGame();
 	}
 	
 	// Update is called once per frame
@@ -42,12 +41,17 @@ public class Ball : MonoBehaviour {
         
     void OnCollisionEnter2D(Collision2D collision)
     {
-        Vector2 tweak = new Vector2(Random.Range(-0.1f, 0.2f), Random.Range(-0.1f, 0.2f));
+        Vector2 tweak = new Vector2(Random.Range(-0.2f, 0f), Random.Range(-0.2f, 0f));
         if (hasStarted)
         {
             audioSource.Play();
             ballRigidbody2D.velocity += tweak;
         }
 
+    }
+
+    public void StartingGame()
+    {
+        hasStarted = false;
     }
 }
