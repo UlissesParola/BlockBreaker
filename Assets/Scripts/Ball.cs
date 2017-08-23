@@ -34,14 +34,14 @@ public class Ball : MonoBehaviour {
 			{
                 float XVelocity = Random.Range(-3, 4);
 				hasStarted = true;
-                ballRigidbody2D.velocity = new Vector2((float)XVelocity, 10f);
+                ballRigidbody2D.velocity = new Vector2((float)XVelocity, GameData.ballVelocity);
 			}
 		}
 	}
         
     void OnCollisionEnter2D(Collision2D collision)
     {
-        Vector2 tweak = new Vector2(Random.Range(-0.2f, 0f), Random.Range(-0.2f, 0f));
+        Vector2 tweak = new Vector2(Random.Range(-0.1f, 0.2f), Random.Range(-0.1f, 0.2f));
         if (hasStarted)
         {
             audioSource.Play();

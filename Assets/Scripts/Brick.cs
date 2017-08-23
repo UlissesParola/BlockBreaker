@@ -21,7 +21,6 @@ public class Brick : MonoBehaviour {
         if (isBreakable)
         {
             brickCount++;
-            Debug.Log(brickCount);
         }
            
     }
@@ -61,9 +60,8 @@ public class Brick : MonoBehaviour {
             //the decreasing of the counter should be before the Destroy method because the time this method takes to process 
             brickCount--;
             levelManager.BricksDestroied();
-            Debug.Log(brickCount);
             //use the static method of the AudioSource class to play the sound when
-            AudioSource.PlayClipAtPoint(crack, transform.position);
+            AudioSource.PlayClipAtPoint(crack, transform.position, 1f);
             Destroy(gameObject);
 
         }
