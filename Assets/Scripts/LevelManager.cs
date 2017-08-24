@@ -8,9 +8,9 @@ public class LevelManager : MonoBehaviour {
 	public void LoadLevel(string scene)
 	{
 		SceneManager.LoadScene(scene);
-        if (scene == "Start")
+        if (scene == "Level_01")
         {
-            GameData.lifes = 3;
+            GameData.ResetLifes();
         }
         Brick.brickCount = 0;
 	}	
@@ -30,7 +30,12 @@ public class LevelManager : MonoBehaviour {
     {
         if (Brick.brickCount <= 0)
         {
+            if (GameData.difficult != "Hard")
+            {
+                GameData.ResetLifes();
+            }
+
             LoadNextLevel();
         }
-    }
+    }          
 }

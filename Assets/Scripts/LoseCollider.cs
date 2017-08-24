@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Bottom : MonoBehaviour {
+public class LoseCollider : MonoBehaviour {
 
     private Image[] lifeImage;
     private Ball ball;

@@ -10,6 +10,7 @@ public class DifficultChanger : MonoBehaviour {
 	// Use this for initialization
     public void ChangeDifficult(string difficult)
     {
+        GameData.difficult = difficult;
         if (difficult == "Easy")
         {
             GameData.ballVelocity = 10f;
