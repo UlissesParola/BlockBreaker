@@ -24,7 +24,7 @@ public class LoseCollider : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D collider)
 	{
-        if (GameData.lifes <= 1)
+        if (GameData.lifes < 1)
         {
             levelManager.LoadLevel("Lose");
         }
